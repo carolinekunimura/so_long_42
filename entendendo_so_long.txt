@@ -1,0 +1,55 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    entendendo_so_long.txt                             :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ckunimur <ckunimur@student.42sp.org.br>    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/02/28 11:35:19 by ckunimur          #+#    #+#              #
+#    Updated: 2023/02/28 14:02:08 by ckunimur         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+A proposta do So_long é trabalhar com a biblioteca gráfica minilibx. 
+Que se trata de uma versão mais "simples" do X-Window , desenvolvida pela 42, 
+contendo o que é necessários para pequenos projetos gráficos como so_log, fdf e fractol.
+
+Um jeito fácil de criar um software gráfico sem precisra de maiores conhecimentos em X-Window,
+fornecendo uma janela de criação, ferramentas de desenho/imagem e algumas opções de
+gerenciamento de eventos.
+
+O software irá apresentar na tela o que for recebido pelo mouse ou teclado.
+É necessário que essas duas partes estejam conectadas: software <-> x-Server.
+
+Antes de mais nada, é necessário fazer essa conexão entre software e server.
+Para isso usamos a função:
+
+        int   mlx_init();
+
+Essa função cria a conexão e não precisa de nenhum parâmetro, retorn um (void *) que será usado na sequencia
+de comando que vem a seguir.
+
+Para usar as funções do minilibx é necessário fazer a conexão do software com a várias bibliotecas
+inclusive a minilibx. Para isso compilamos com as seguintes regras
+
+        -lmlx -lXext - lX11
+
+Você pode também especificar os caminhos das bibliotecas com a flag -L
+
+*************************************************************************************************
+
+        int mlx_new_window(mlx_ptr, LARGURA, ALTURA, "Título");
+
+Essa função irá criar a janela que iremos trabalhar. Nessa função vamos definir as medidas e título da janela.
+*mlx_ptr (ponteiro para tela)
+
+*************************************************************************************************
+
+        int mlx_loop(mlx_ptr);
+
+Essa função mantém a janela aberta, executando em looping. Todos os possiveis eventos devem estar acima dessa função.
+
+
+
+
+
