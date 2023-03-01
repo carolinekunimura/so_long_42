@@ -6,19 +6,19 @@
 /*   By: ckunimur <ckunimur@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 01:50:20 by ckunimur          #+#    #+#             */
-/*   Updated: 2023/02/28 15:15:19 by ckunimur         ###   ########.fr       */
+/*   Updated: 2023/03/01 15:13:24 by ckunimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "solong.h"
 
-int	handle_no_event(void *data)
+int	handle_no_event(void *data) /*Essa função serve para tratar eventos vazios ou ausentes, quando nenhuma é envida pelo usuário */
 {
 	return (0);
 }
-int	handle_input(int keysym, t_data *data) /*Aqui iremos definir os eventos de acordo com o que foi*/
+int	handle_input(int keysym, t_data *data) /*Essa função iá receber os eventos do usuário e acionar as funções de acordo com os comandos executados pelo usuário */
 {
-	printf("%i\n", keysym);
+	printf("%i\n", keysym); /*keysym se refere ao conjunto de símbolos e teclas do sistema, são valores inteiros usados para identificar as teclas em um evento que use teclado*/
 	return (0);
 }
 
