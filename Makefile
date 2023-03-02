@@ -6,7 +6,7 @@
 #    By: ckunimur <ckunimur@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/20 04:29:08 by ckunimur          #+#    #+#              #
-#    Updated: 2023/03/02 13:55:24 by ckunimur         ###   ########.fr        #
+#    Updated: 2023/03/02 14:54:31 by ckunimur         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,5 +42,6 @@ fclean: clean
 re:	fclean all
 
 .PHONY: all clean fclean re
+# Essa função garante que não haverá nenhum conflito caso algum arquivo tenha o mesmo noem que as regras mencionadas. Indica que make não precisa prourar arquivos com esses nomes e sim, apenas executar estes comandos
 
 val: @valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --log-file=teste -s 

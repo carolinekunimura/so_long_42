@@ -6,7 +6,7 @@
 /*   By: ckunimur <ckunimur@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 11:23:33 by ckunimur          #+#    #+#             */
-/*   Updated: 2023/03/01 17:22:57 by ckunimur         ###   ########.fr       */
+/*   Updated: 2023/03/02 14:50:21 by ckunimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int ft_destroy_mlx(t_data *data)
 	free(data->mlx_ptr); /* Liberando o espaço alocado pelo programa */
 	exit(0);
 }
+
 
 int	handle_no_event(void *data) /*Essa função serve para tratar eventos vazios ou ausentes, quando nenhum comando(evento) é recebido */
 {

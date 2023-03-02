@@ -6,11 +6,11 @@
 /*   By: ckunimur <ckunimur@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 01:50:20 by ckunimur          #+#    #+#             */
-/*   Updated: 2023/03/02 13:46:28 by ckunimur         ###   ########.fr       */
+/*   Updated: 2023/03/02 14:55:31 by ckunimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "solong.h"
+# include "/headers/solong.h"
 
 int main()
 	{
@@ -28,6 +28,14 @@ int main()
 			return(MLX_ERROR);
 		}
 		
+		int	ft_show_map(t_data	*window)
+		{
+			int	x;
+			int	y;
+
+			y = -1;
+			while (x <window->map[++y]) /* ++y indica que deve haver incremente antes de a função ser executada*/
+		}
 		data.img_ptr = mlx_xpm_file_to_image(data.mlx_ptr, "imgs/tile_set.xpm", &data.img_width, &data.img_height); /* função que converte arquivo .xpm em imagem */
 		if (!data.img_ptr)
 			exit(1);
