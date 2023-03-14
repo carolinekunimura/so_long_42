@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   solong.h                                           :+:      :+:    :+:   */
+/*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ckunimur <ckunimur@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 21:34:27 by ckunimur          #+#    #+#             */
-/*   Updated: 2023/03/14 15:39:24 by ckunimur         ###   ########.fr       */
+/*   Updated: 2023/03/14 17:07:23 by ckunimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct s_data /*criamos uma struct para manipular diferentes dados em fu
 	char	*img_data;
 	int		img_width;
 	int		img_height;
+	size_t	movements;
 	
 }	t_data;
 
