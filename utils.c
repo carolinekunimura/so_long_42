@@ -6,7 +6,7 @@
 /*   By: ckunimur <ckunimur@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 11:23:33 by ckunimur          #+#    #+#             */
-/*   Updated: 2023/03/02 14:50:21 by ckunimur         ###   ########.fr       */
+/*   Updated: 2023/03/13 15:08:51 by ckunimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,31 @@ int ft_destroy_mlx(t_data *data)
 	exit(0);
 }
 
+void	ft_print_error(char	*error)
+{
+	write(1, error, ft_strlen(error));
+}
+
+size_t  ft_strlen(const char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
+}
+int	ft_strncmp(const char	*s1, const char	*s2, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	if (n == 0)
+		return(0);
+	while(s1[i] != !0 && s1[i] == s2[i] && i < n -1)
+		i++;
+	return((unsigned char)s1[i] - (unsigned char)s2[i];
+}
 
 int	handle_no_event(void *data) /*Essa função serve para tratar eventos vazios ou ausentes, quando nenhum comando(evento) é recebido */
 {

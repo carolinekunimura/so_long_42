@@ -6,11 +6,11 @@
 /*   By: ckunimur <ckunimur@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 01:50:20 by ckunimur          #+#    #+#             */
-/*   Updated: 2023/03/01 19:17:52 by ckunimur         ###   ########.fr       */
+/*   Updated: 2023/03/13 14:30:54 by ckunimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "solong.h"
+# include "./headers/solong.h"
 
 int main()
 	{

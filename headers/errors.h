@@ -6,7 +6,7 @@
 /*   By: ckunimur <ckunimur@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 11:37:03 by ckunimur          #+#    #+#             */
-/*   Updated: 2023/03/02 13:37:22 by ckunimur         ###   ########.fr       */
+/*   Updated: 2023/03/13 15:10:51 by ckunimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # define PIXEL_SIZE 32
 
-# define ERROR_0 "Invalid number of arguments"
 # define ERROR_0 "Invalid number of arguments"
 # define ERROR_1 "Invalid extension"
 # define ERROR_2 "Impossible to read the file"
