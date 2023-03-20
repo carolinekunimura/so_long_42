@@ -6,7 +6,7 @@
 /*   By: ckunimur <ckunimur@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:00:03 by ckunimur          #+#    #+#             */
-/*   Updated: 2023/03/14 17:51:09 by ckunimur         ###   ########.fr       */
+/*   Updated: 2023/03/20 16:36:04 by ckunimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,8 @@ int	ft_init_game(t_data *data) /* inicializa a conexão, janela e jogo*/
 		ft_print_error(ERROR_12"\n");
 		return (1);
 	}
-	data->win_ptr = mlx_new_window(data->mlx_ptr, data->col * \
-		PIXEL_SIZE, data->line * PIXEL_SIZE, "Vai Capiii!"); /* criando uma janela | As medidas são estabelecida na macro definida na biblioteca 
-		ponteiro janela = função(ponteiro tela, largura, altura, Título da Janela ) */
+	data->win_ptr = mlx_new_window(data->mlx_ptr, data->col * PIXEL_SIZE, data->line * PIXEL_SIZE, "Vai Capiii!"); /* criando uma janela | As medidas são estabelecida na macro definida na biblioteca 
+	ponteiro janela = função(ponteiro tela, largura, altura, Título da Janela ) */
 	if (data->win_ptr == NULL)
 	{
 		free(data->win_ptr); /* em caso de algum erro na conexão, a memória é desalocada e retorna código de erro */
@@ -30,7 +29,7 @@ int	ft_init_game(t_data *data) /* inicializa a conexão, janela e jogo*/
 		return(1);
 	}
 	data->movements = 0 /* zera o contador de movimentos */
-	ft_put_sprites(data); /* cola as imagens na tela */
+	ft_put_sprites(data); /* coloca as imagens na tela */
 	data->capi = data->capi_down; /* define a imagem inicial do player */
 }
 
@@ -60,7 +59,7 @@ void	ft_sprites(t_data *data, void **image, char *path) /* coloca os sprites na 
 	}
 }
 
-int	ft_close(t_data *data) /* funão que destroi as imagens e libera a memória alocada */
+int	ft_close(t_data *data) /* funÇão que destroi as imagens e libera a memória alocada */
 {
 	mlx_destroy_image(data->mlx_ptr, data->capi_left);
 	mlx_destroy_image(data->mlx_ptr, data->capi_right);
