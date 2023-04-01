@@ -6,7 +6,7 @@
 #    By: ckunimur <ckunimur@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/22 16:49:04 by ckunimur          #+#    #+#              #
-#    Updated: 2023/03/22 16:57:11 by ckunimur         ###   ########.fr        #
+#    Updated: 2023/04/01 19:19:46 by ckunimur         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,18 @@ NAME = so_long
 
 OBJS = $(SOURCES:%.c=%.o)
 
-SOURCES = so_long.c
+GNL_PATH = gnl_42/
+GNL_FILES = get_next_line.c get_next_line_utils.c 
+
+SOURCES = so_long.c utils.c map_rules.c images_rules.c
+SOURCES += $(addprefix $(GNL_PATH), $(GNL_FILES))
 
 MLX_FLAGS = -lmlx -lXext -lX11
 
 FLAGS = -Wall -Werror -Wextra -g3
+
+%.o: %.c
+	cc -c $< $(FLAGS) -o $@ 
 
 all: $(NAME)
 

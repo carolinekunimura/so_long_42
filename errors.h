@@ -6,7 +6,7 @@
 /*   By: ckunimur <ckunimur@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 11:37:03 by ckunimur          #+#    #+#             */
-/*   Updated: 2023/03/27 16:25:19 by ckunimur         ###   ########.fr       */
+/*   Updated: 2023/04/01 19:00:00 by ckunimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 # define ERROR_2 "Impossible to read the file"
 # define ERROR_3 "Invalid map format"
 # define ERROR_4 "Invalid border"
-# define ERROR_5 "Impossible to access exit"
-# define ERROR_6 "Impossible to access collectibles"
+# define ERROR_5 "Failed to load image"
+# define ERROR_6 "Impossible to access collectibles or Exit"
 # define ERROR_7 "Invalid number of Players"
 # define ERROR_8 "Invalid number of Exits"
 # define ERROR_9 "Invalid number of Collectibles"
