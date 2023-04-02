@@ -6,7 +6,7 @@
 /*   By: ckunimur <ckunimur@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 16:38:57 by ckunimur          #+#    #+#             */
-/*   Updated: 2023/04/01 20:13:08 by ckunimur         ###   ########.fr       */
+/*   Updated: 2023/04/01 21:23:03 by ckunimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,56 @@ int	press_button(int key, t_data *data)
 {
 	if (key == XK_Escape)
 		close_window(data);
+	if (key == XK_Left || key == XK_a)
+	{
+		data->capi = data->capi_left;
+		ft_play(data, 0, -1);
+	}
+	else if (key == XK_Right || key == XK_d)
+	{
+		data->capi = data->capi_right;
+		ft_play(data, 0, 1);
+	}
+	else if (key == XK_Up || key == XK_w)
+	{
+		data->capi = data->capi_up;
+		ft_play(data, -1, 0);
+	}
+	else if (key == XK_Down || key == XK_s)
+	{
+		data->capi = data->capi_down;
+		ft_play(data, 1, 0);
+	}
+	render(data);
 	return(0);
+}
+
+void	ft_play(t_data *data, int x, int y)
+{
+	if (data->map[data->capi_x + x][data->capi_y + y] == '0')
+	{
+		data->map[data->capi_x + x][data->capi_y + y] = 'P';
+		data->map[data->capi_x][data->capi_y] = '0';
+		data->count_moves++;
+		data->capi_x += x;
+		data->capi_y += y;
+	}
+	else if (data->map[data->capi_x + x][data->capi_y + y] == 'C')
+	{
+		data->map[data->capi_x + x][data->capi_y + y] = 'P';
+		data->count_lemon--;
+		data->map[data->capi_x][data->capi_y] = '0';
+		data->count_moves++;
+		data->capi_x += x;
+		data->capi_y += y;
+	}
+	else if (data->map[data->capi_x + x][data->capi_y + y] == 'E' && data->count_lemon == 0)
+	{
+		data->map[data->capi_x][data->capi_y] = '0';
+		data->count_moves++;
+		write(1, "Enjoy your bath!!\n", 18);
+		close_window(data);
+	}
 }
 
 int	ft_create_map(t_data *data, char *argv)
@@ -213,6 +262,10 @@ int main(int argc, char **argv)
 		return (1);
 	if (valid_map(&data) != 0)
 		return (1);
+	if	(count_lemon(&data) != 0)
+		return (1);
+	if (count_exit_player(&data) != 0)
+		return (1);
 	data.mlx = mlx_init();
 	if (data.mlx == NULL)
 		return (ft_print_error(ERROR_11));
@@ -223,6 +276,7 @@ int main(int argc, char **argv)
 		return (ft_print_error(ERROR_12));
 	}
 	ft_put_sprites(&data);
+	data.capi = data.capi_down;
 	mlx_hook(data.window, 17, 1L<<17, close_window ,&data);
 	mlx_hook(data.window, 2, 1L<<0, press_button, &data);
 	render(&data);

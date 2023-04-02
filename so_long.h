@@ -6,7 +6,7 @@
 /*   By: ckunimur <ckunimur@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 16:39:33 by ckunimur          #+#    #+#             */
-/*   Updated: 2023/04/01 19:25:31 by ckunimur         ###   ########.fr       */
+/*   Updated: 2023/04/01 21:10:20 by ckunimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ typedef struct	s_data
 	char	**map;
 	int		capi_x;
 	int		capi_y;
+	int		count_lemon;
+	int		count_moves;
 
 }				t_data;
 
@@ -88,4 +90,8 @@ char	*ft_strdup(const char *s);
 
 void	ft_sprites(t_data *data, void **img, char *path);
 void	ft_put_sprites(t_data *data);
-int	render(t_data *data);
+int		render(t_data *data);
+int		ft_move(t_data *data, int key);
+int		count_exit_player(t_data *data);
+int		count_lemon(t_data *data);
+void	ft_play(t_data *data, int x, int y);

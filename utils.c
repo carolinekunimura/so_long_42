@@ -6,7 +6,7 @@
 /*   By: ckunimur <ckunimur@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 13:29:10 by ckunimur          #+#    #+#             */
-/*   Updated: 2023/04/01 16:38:36 by ckunimur         ###   ########.fr       */
+/*   Updated: 2023/04/01 21:24:16 by ckunimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	ft_print_error(char *error)
 {
 	write(1, error, ft_strlen(error));
+	write(1, "\n", 1);
 	return(1);
 }
 
