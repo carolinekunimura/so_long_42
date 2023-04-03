@@ -6,16 +6,16 @@
 /*   By: ckunimur <ckunimur@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 18:45:24 by ckunimur          #+#    #+#             */
-/*   Updated: 2023/04/01 21:19:40 by ckunimur         ###   ########.fr       */
+/*   Updated: 2023/04/03 12:49:05 by ckunimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "headers/so_long.h"
 
 void	ft_sprites(t_data *data, void **img, char *path)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	*img = mlx_xpm_file_to_image(data->mlx, path, &x, &y);
 	if (*img == NULL)
@@ -40,59 +40,49 @@ void	ft_put_sprites(t_data *data)
 
 int	render(t_data *data)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	x = 0;
-	y = 0;
-	while(data->map[x] != NULL)
+	while (data->map[x] != NULL)
 	{
-		while(y < data->col)
+		y = -1;
+		while (++y < data->col)
 		{
 			if (data->map[x][y] == '0')
-				mlx_put_image_to_window(data->mlx, data->window, data->tile_set, y * PIXEL_SIZE, x * PIXEL_SIZE);
+				ft_put_render(data, x, y, data->tile_set);
 			else if (data->map[x][y] == '1')
-				mlx_put_image_to_window(data->mlx, data->window, data->tree_set, y * PIXEL_SIZE, x * PIXEL_SIZE);
+				ft_put_render(data, x, y, data->tree_set);
 			else if (data->map[x][y] == 'P')
-				mlx_put_image_to_window(data->mlx, data->window, data->capi, y * PIXEL_SIZE, x * PIXEL_SIZE);
+				ft_put_render(data, x, y, data->capi);
 			else if (data->map[x][y] == 'C')
-				mlx_put_image_to_window(data->mlx, data->window, data->lemon_set, y * PIXEL_SIZE, x * PIXEL_SIZE);
+				ft_put_render(data, x, y, data->lemon_set);
 			else if (data->map[x][y] == 'E' && data->count_lemon > 0)
-				mlx_put_image_to_window(data->mlx, data->window, data->b_exit, y * PIXEL_SIZE, x * PIXEL_SIZE);
+				ft_put_render(data, x, y, data->b_exit);
 			else
-				mlx_put_image_to_window(data->mlx, data->window, data->exit_set, y * PIXEL_SIZE, x * PIXEL_SIZE);
-			y++;
+				ft_put_render(data, x, y, data->exit_set);
 		}
-	y = 0;
 	x++;
 	}
 	return (0);
 }
 
-int	ft_move(t_data *data, int key)
+void	ft_put_render(t_data *data, int x, int y, void *image)
 {
-	if (key == XK_Left || key == XK_a)
-		data->capi = data->capi_left;
-	else if (key == XK_Right || key == XK_d)
-		data->capi = data->capi_right;
-	else if (key == XK_Up || key == XK_w)
-		data->capi = data->capi_up;
-	else if (key == XK_Down || key == XK_s)
-		data->capi = data->capi_down;
-	render(data);
-	return (0);
+	mlx_put_image_to_window (data->mlx, data->window, image, \
+		y * PIXEL_SIZE, x * PIXEL_SIZE);
 }
 
-int		count_lemon(t_data *data)
+int	count_lemon(t_data *data)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	x = 0;
 	y = 0;
 	while (data->map[x] != NULL)
 	{
-		while(data->map[x][y] != '\0')
+		while (data->map[x][y] != '\0')
 		{
 			if (data->map[x][y] == 'C')
 				data->count_lemon++;
@@ -105,33 +95,3 @@ int		count_lemon(t_data *data)
 		return (ft_print_error(ERROR_9));
 	return (0);
 }
-
-int		count_exit_player(t_data *data)
-{
-	int x;
-	int y;
-	int c;
-	int p;
-
-	c = 0;
-	p = 0;
-	x = 0;
-	while (data->map[x] != NULL)
-	{
-		y = -1;
-		while(data->map[x][++y] != '\0')
-		{
-			if (data->map[x][y] == 'E')
-				c++;
-			if (data->map[x][y] == 'P')
-				p++;
-		}
-	x++;
-	}
-	if (c == 0)
-		return (ft_print_error(ERROR_8));
-	if (p > 1)
-		return (ft_print_error(ERROR_7));
-	return (0);
-}
-
