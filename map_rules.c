@@ -6,7 +6,7 @@
 /*   By: ckunimur <ckunimur@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 13:27:26 by ckunimur          #+#    #+#             */
-/*   Updated: 2023/04/03 12:16:37 by ckunimur         ###   ########.fr       */
+/*   Updated: 2023/04/03 15:03:23 by ckunimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int	ft_check_map( t_data *data, char *argv)
 	while (line)
 	{
 		data->line++;
+		free(line);
 		line = get_next_line(fd);
 		if (ft_strchr(line, '\n') && \
 				data->col != (int)ft_strlen(line) - 1 && line != NULL)

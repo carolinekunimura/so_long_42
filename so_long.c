@@ -6,24 +6,11 @@
 /*   By: ckunimur <ckunimur@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 16:38:57 by ckunimur          #+#    #+#             */
-/*   Updated: 2023/04/03 13:24:40 by ckunimur         ###   ########.fr       */
+/*   Updated: 2023/04/03 14:58:10 by ckunimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "headers/so_long.h"
-
-void	ft_free_matrix(void **matrix)
-{
-	int i;
-	
-	i = 0;
-	while (matrix[i] != NULL)
-	{
-		free(matrix[i]);
-		i++;
-	}
-	free(matrix);
-}
 
 int	close_window(t_data	*data)
 {
@@ -34,9 +21,11 @@ int	close_window(t_data	*data)
 	mlx_destroy_image(data->mlx, data->tile_set);
 	mlx_destroy_image(data->mlx, data->tree_set);
 	mlx_destroy_image(data->mlx, data->lemon_set);
+	mlx_destroy_image(data->mlx, data->exit_set);
+	mlx_destroy_image(data->mlx, data->b_exit);
 	mlx_destroy_window(data->mlx, data->window);
+	free_matrix(data->map);
 	mlx_destroy_display(data->mlx);
-	ft_free_matrix((void**) data->map);
 	free(data->mlx);
 	exit(0);
 }

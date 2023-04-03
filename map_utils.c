@@ -6,7 +6,7 @@
 /*   By: ckunimur <ckunimur@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 11:31:23 by ckunimur          #+#    #+#             */
-/*   Updated: 2023/04/03 12:16:44 by ckunimur         ###   ########.fr       */
+/*   Updated: 2023/04/03 14:49:40 by ckunimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int	ft_check_path(t_data *data)
 	char	**dup_data;
 
 	i = 0;
-	dup_data = malloc((data->line + 1) * sizeof (char *));
+	dup_data = ft_calloc(data->line + 1, sizeof (char *));
 	if (dup_data == NULL)
 		return (ft_print_error(ERROR_14));
 	while (i < data->line)
@@ -96,7 +96,6 @@ int	ft_check_path(t_data *data)
 		}
 		i++;
 	}
-	dup_data[i] = NULL;
 	find_capi(data);
 	flood_fill(dup_data, data->capi_x, data->capi_y);
 	if (ft_check_invalid_dup(dup_data) != 0)

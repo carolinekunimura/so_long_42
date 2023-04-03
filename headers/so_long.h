@@ -6,7 +6,7 @@
 /*   By: ckunimur <ckunimur@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 16:39:33 by ckunimur          #+#    #+#             */
-/*   Updated: 2023/04/03 12:50:30 by ckunimur         ###   ########.fr       */
+/*   Updated: 2023/04/03 13:48:10 by ckunimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ int		ft_close_and_free(int fd, char *gnl);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_init_game(t_data *data);
 char	*ft_strdup(const char *s);
-int		ft_init_game(t_data *data);
 /*-------------------------------functions imges_rules.c ---------*/
 void	ft_sprites(t_data *data, void **img, char *path);
 void	ft_put_sprites(t_data *data);
