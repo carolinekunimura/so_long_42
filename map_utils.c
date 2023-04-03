@@ -6,7 +6,7 @@
 /*   By: ckunimur <ckunimur@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 11:31:23 by ckunimur          #+#    #+#             */
-/*   Updated: 2023/04/03 14:49:40 by ckunimur         ###   ########.fr       */
+/*   Updated: 2023/04/03 17:37:06 by ckunimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,11 @@ int	ft_check_path(t_data *data)
 	int		i;
 	char	**dup_data;
 
-	i = 0;
+	i = -1;
 	dup_data = ft_calloc(data->line + 1, sizeof (char *));
 	if (dup_data == NULL)
 		return (ft_print_error(ERROR_14));
-	while (i < data->line)
+	while (++i < data->line)
 	{
 		dup_data[i] = ft_strdup(data->map[i]);
 		if (dup_data[i] == NULL)
@@ -94,12 +94,14 @@ int	ft_check_path(t_data *data)
 			free_matrix(dup_data);
 			return (ft_print_error(ERROR_14));
 		}
-		i++;
 	}
 	find_capi(data);
 	flood_fill(dup_data, data->capi_x, data->capi_y);
 	if (ft_check_invalid_dup(dup_data) != 0)
+	{
+		free_matrix(dup_data);
 		return (ft_print_error(ERROR_6));
+	}
 	free_matrix(dup_data);
 	return (0);
 }

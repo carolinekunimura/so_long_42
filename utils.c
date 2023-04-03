@@ -6,7 +6,7 @@
 /*   By: ckunimur <ckunimur@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 13:29:10 by ckunimur          #+#    #+#             */
-/*   Updated: 2023/04/03 12:51:03 by ckunimur         ###   ########.fr       */
+/*   Updated: 2023/04/03 17:32:30 by ckunimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,12 @@ int	ft_print_error(char *error)
 
 int	ft_close_and_free(int fd, char *gnl)
 {
+	while (gnl)
+	{
+		free(gnl);
+		gnl = get_next_line(fd);
+	}
 	close(fd);
-	free(gnl);
 	return (1);
 }
 

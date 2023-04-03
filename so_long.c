@@ -6,7 +6,7 @@
 /*   By: ckunimur <ckunimur@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 16:38:57 by ckunimur          #+#    #+#             */
-/*   Updated: 2023/04/03 14:58:10 by ckunimur         ###   ########.fr       */
+/*   Updated: 2023/04/03 17:45:17 by ckunimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ int	press_button(int key, t_data *data)
 		ft_play(data, 1, 0);
 	}
 	ft_print_moves(data);
-	render(data);
 	return (0);
 }
 
@@ -103,16 +102,16 @@ int	main(int argc, char **argv)
 		return (1);
 	if (ft_create_map(&data, argv[1]) != 0)
 		return (1);
-	if (valid_map(&data) != 0)
+	if (count_exit_player(&data) != 0 || count_lemon(&data) != 0
+		|| valid_map(&data) != 0)
+	{
+		free_matrix(data.map);
 		return (1);
-	if (count_lemon(&data) != 0)
-		return (1);
-	if (count_exit_player(&data) != 0)
-		return (1);
+	}
 	ft_init_game (&data);
 	mlx_hook (data.window, 17, 1L << 17, close_window, &data);
 	mlx_hook (data.window, 2, 1L << 0, press_button, &data);
-	render (&data);
+	mlx_loop_hook(data.mlx, render, &data);
 	mlx_loop (data.mlx);
 	return (0);
 }

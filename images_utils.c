@@ -6,7 +6,7 @@
 /*   By: ckunimur <ckunimur@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:06:17 by ckunimur          #+#    #+#             */
-/*   Updated: 2023/04/03 12:17:17 by ckunimur         ###   ########.fr       */
+/*   Updated: 2023/04/03 17:49:35 by ckunimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ int	count_exit_player(t_data *data)
 		}
 	x++;
 	}
-	if (c == 0)
+	if (c != 1)
 		return (ft_print_error(ERROR_8));
-	if (p > 1)
+	if (p != 1)
 		return (ft_print_error(ERROR_7));
 	return (0);
 }

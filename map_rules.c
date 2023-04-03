@@ -6,7 +6,7 @@
 /*   By: ckunimur <ckunimur@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 13:27:26 by ckunimur          #+#    #+#             */
-/*   Updated: 2023/04/03 15:03:23 by ckunimur         ###   ########.fr       */
+/*   Updated: 2023/04/03 17:48:01 by ckunimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	ft_create_map(t_data *data, char *argv)
 	int	fd;
 
 	i = 0;
-	data->map = (char **)malloc((data->line + 1) * sizeof(char *));
+	data->map = (char **)ft_calloc((data->line + 1), sizeof(char *));
 	if (data->map == NULL)
 		return (ft_print_error(ERROR_14));
 	fd = open(argv, O_RDONLY);

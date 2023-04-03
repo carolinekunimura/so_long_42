@@ -14,7 +14,7 @@ NAME = so_long
 
 OBJS = $(SOURCES:%.c=%.o)
 
-GNL_PATH = gnl_42/
+GNL_PATH = gnl/
 GNL_FILES = get_next_line.c get_next_line_utils.c 
 
 SOURCES = so_long.c utils.c map_rules.c images_rules.c ft_itoa.c map_utils.c images_utils.c
